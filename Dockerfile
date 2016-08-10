@@ -19,6 +19,6 @@ RUN set -ex \
     && docker-php-ext-enable xdebug \
     && apk del .xdebug-builddeps
 
-#### mysql ####
+#### extensions ####
 
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_mysql zip
