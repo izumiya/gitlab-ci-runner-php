@@ -21,4 +21,12 @@ RUN set -ex \
 
 #### extensions ####
 
-RUN docker-php-ext-install pdo_mysql zip
+RUN docker-php-ext-install pdo_mysql
+
+#### zip ####
+
+RUN set -ex \
+    && apk add --no-cache --virtual .zip-builddeps \
+        zlib-dev \
+    && docker-php-ext-install zip \
+    && apk del .zip-builddeps
