@@ -30,3 +30,8 @@ RUN set -ex \
         zlib-dev \
     && docker-php-ext-install zip \
     && apk del .zip-builddeps
+
+#### perl ####
+
+RUN set -ex \
+    && apk add --no-cache perl
