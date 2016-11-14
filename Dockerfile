@@ -23,6 +23,14 @@ RUN set -ex \
 
 RUN docker-php-ext-install pdo_mysql
 
+#### PHP ImageMagick ####
+RUN set -ex \
+    && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS imagemagick-dev libtool \
+    && pecl install imagick-3.4.1 \
+    && docker-php-ext-enable imagick \
+    && apk add --no-cache --virtual .imagick-runtime-deps imagemagick \
+    && apk del .phpize-deps
+
 #### zip ####
 
 RUN set -ex \
