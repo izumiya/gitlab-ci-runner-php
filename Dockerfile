@@ -43,3 +43,8 @@ RUN set -ex \
 
 RUN set -ex \
     && apk add --no-cache perl
+
+#### rsync ####
+
+RUN set -ex \
+    && apk add --no-cache rsync
